@@ -125,15 +125,6 @@
    MOBILE SPECIFIC - User Menu Positioning
    ========================================== */
 @media (max-width: 768px) {
-    /* Position user menu in top-right corner next to hamburger */
-    .user-menu {
-        position: fixed !important;
-        top: 10px !important;
-        right: 75px !important;  /* Left of hamburger menu */
-        z-index: 99998 !important;
-        margin: 0;
-    }
-    
     /* Make avatar slightly smaller on mobile */
     .user-avatar {
         width: 40px;
