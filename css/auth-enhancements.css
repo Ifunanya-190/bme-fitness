@@ -30,68 +30,73 @@
     pointer-events: none;
 }
 
-/* USER MENU STYLES */
+/* ==========================================
+   USER MENU - After Login (Mobile & Desktop)
+   ========================================== */
 .user-menu {
     position: relative;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .user-avatar {
-    width: 40px;
-    height: 40px;
-    background: var(--gold);
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: var(--transition-smooth);
-    border: 2px solid var(--gold-dark);
+    box-shadow: 0 4px 15px rgba(201, 163, 78, 0.3);
+    border: 2px solid var(--gold);
 }
 
 .user-avatar:hover {
-    background: var(--gold-light);
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(201, 163, 78, 0.5);
 }
 
 .user-avatar i {
-    color: var(--black);
-    font-size: 18px;
+    font-size: 20px;
+    color: #000;
 }
 
+/* Dropdown Menu */
 .user-dropdown {
     position: absolute;
-    top: 100%;
+    top: 60px;
     right: 0;
     background: var(--deep);
     border: 2px solid var(--gold);
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    min-width: 200px;
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
+    z-index: 99999;
 }
 
 .user-dropdown.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(10px);
+    transform: translateY(0);
 }
 
 .user-greeting {
     padding: 15px 20px;
     color: var(--gold);
     font-weight: 600;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(201, 163, 78, 0.2);
+    font-size: 14px;
 }
 
 .user-dropdown hr {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(201, 163, 78, 0.2);
     margin: 0;
 }
 
@@ -99,42 +104,49 @@
     display: flex;
     align-items: center;
     padding: 12px 20px;
-    color: var(--white);
+    color: var(--gray);
     text-decoration: none;
     transition: var(--transition-smooth);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.user-dropdown a:last-child {
-    border-bottom: none;
+    font-size: 14px;
 }
 
 .user-dropdown a:hover {
-    background: var(--gold);
-    color: var(--black);
-    transform: translateX(5px);
+    background: rgba(201, 163, 78, 0.1);
+    color: var(--gold);
 }
 
 .user-dropdown a i {
     margin-right: 10px;
-    width: 16px;
+    width: 20px;
     text-align: center;
 }
 
-/* MOBILE RESPONSIVE */
+/* ==========================================
+   MOBILE SPECIFIC - User Menu Positioning
+   ========================================== */
 @media (max-width: 768px) {
-    .user-menu {
-        margin-left: 10px;
-    }
-    
+    /* Make avatar slightly smaller on mobile */
     .user-avatar {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
     }
     
+    .user-avatar i {
+        font-size: 18px;
+    }
+    
+    /* Dropdown adjustments for mobile */
     .user-dropdown {
-        right: -50px;
-        min-width: 180px;
+        right: 0;
+        left: auto;
+        min-width: 200px;
+        top: 55px;
+    }
+    
+    /* Ensure dropdown is above everything */
+    /* Z-index hierarchy: navbar (9999) > dropdown (99999) > user-menu (99998) */
+    .user-dropdown.active {
+        z-index: 99999 !important;
     }
     
     /* Mobile password toggle fixes */

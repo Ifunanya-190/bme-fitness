@@ -160,19 +160,52 @@ body{
     color:#fff;
 }
 
-/* BUTTON */
+/* WhatsApp Button Styling */
+.whatsapp-item,
+.whatsapp-payment,
+a[href*="wa.me"] {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px !important;
+    background: linear-gradient(135deg, #25D366, #128C7E) !important;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 30px !important;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    border: 2px solid #25D366 !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    font-size: 15px !important;
+}
+
+.whatsapp-item:hover,
+.whatsapp-payment:hover,
+a[href*="wa.me"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    background: linear-gradient(135deg, #128C7E, #075E54) !important;
+    color: #fff !important;
+}
+
+/* ==========================================
+   BUTTON STYLES - Improved Sizing
+   ========================================== */
 .btn{
-    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
-    color:#000;
-    padding:12px 28px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:600;
-    transition:var(--transition-smooth);
-    border:1px solid var(--gold);
-    box-shadow:0 4px 15px rgba(201, 163, 78, 0.2);
-    position:relative;
-    overflow:hidden;
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 15px rgba(201, 163, 78, 0.3);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn::before{
@@ -188,7 +221,8 @@ body{
 
 .btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 6px 20px rgba(201, 163, 78, 0.4);
+    box-shadow: 0 8px 25px rgba(201, 163, 78, 0.5);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
 }
 
 .btn:hover::before{
@@ -400,67 +434,22 @@ body:not(.light-theme) .menu-toggle:hover {
         box-shadow: 0 2px 20px rgba(0,0,0,0.5) !important;
     }
     
-    /* NAV LINKS - FULL SCREEN OVERLAY */
-    .nav-links{
-        position: fixed !important;
-        top: 60px !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: calc(100vh - 60px) !important;
-        background: rgba(5, 7, 7, 0.98) !important;
-        flex-direction: column !important;
-        display: none !important;
-        padding: 20px 0 !important;
-        backdrop-filter: blur(10px) !important;
-        z-index: 9998 !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-    
-    .nav-links.active{
-        display: flex !important;
-    }
-    
-    .nav-links a{
-        display: block !important;
-        padding: 15px 20px !important;
-        text-align: center !important;
-        margin: 0 !important;
-        color: var(--white) !important;
-        font-size: 16px !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-        transition: all 0.3s ease !important;
-        text-decoration: none !important;
-        -webkit-tap-highlight-color: transparent !important;
-    }
-    
-    .nav-links a:hover{
-        background: rgba(201, 163, 78, 0.2) !important;
-        color: var(--gold) !important;
-        transform: translateX(5px) !important;
-    }
-    
-    .nav-links a:hover::after{
-        width: 60% !important;
-        left: 20% !important;
-    }
-    
     /* LIGHT THEME MOBILE FIXES */
     body.light-theme .navbar {
         background: var(--light-bg) !important;
         border-bottom: 1px solid var(--light-border) !important;
     }
     
-    body.light-theme .nav-links {
+    body.light-theme .nav-links.active {
         background: var(--light-bg) !important;
     }
     
-    body.light-theme .nav-links a {
+    body.light-theme .nav-links.active > a {
         color: var(--light-text) !important;
         border-bottom-color: var(--light-border) !important;
     }
     
-    body.light-theme .nav-links a:hover {
+    body.light-theme .nav-links.active > a:hover {
         background: rgba(201, 163, 78, 0.1) !important;
         color: var(--gold) !important;
     }
@@ -482,15 +471,82 @@ body:not(.light-theme) .menu-toggle:hover {
         max-width: 100% !important;
     }
     
+    /* USER MENU MOBILE POSITIONING - Override nav-links hiding */
+    .nav-links {
+        display: block !important;
+        background: transparent !important;
+        position: static !important;
+        height: auto !important;
+        padding: 0 !important;
+    }
+    
+    .nav-links > a {
+        display: none !important;
+    }
+    
+    .nav-links.active {
+        position: fixed !important;
+        top: 60px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(100vh - 60px) !important;
+        background: rgba(5, 7, 7, 0.98) !important;
+        flex-direction: column !important;
+        display: flex !important;
+        padding: 20px 0 !important;
+        backdrop-filter: blur(10px) !important;
+        z-index: 9998 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .nav-links.active > a {
+        display: block !important;
+        padding: 15px 20px !important;
+        text-align: center !important;
+        margin: 0 !important;
+        color: var(--white) !important;
+        font-size: 16px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        transition: all 0.3s ease !important;
+        text-decoration: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    .nav-links.active > a:hover {
+        background: rgba(201, 163, 78, 0.2) !important;
+        color: var(--gold) !important;
+        transform: translateX(5px) !important;
+    }
+    
+    /* User menu always visible on mobile next to hamburger */
+    /* Z-index hierarchy: navbar (9999) > user-menu (99998) > dropdown (99999) */
+    .user-menu {
+        position: fixed !important;
+        top: 10px !important;
+        right: 75px !important;  /* Positioned left of hamburger menu (50px width + 25px spacing) */
+        z-index: 99998 !important;
+        margin: 0 !important;
+        display: inline-block !important;
+    }
+    
     /* MOBILE BUTTON FIXES */
     .btn {
-        padding: 12px 20px !important;
-        font-size: 14px !important;
+        padding: 12px 28px !important;
+        font-size: 15px !important;
         -webkit-tap-highlight-color: transparent !important;
         min-height: 44px !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
+    }
+    
+    .whatsapp-item,
+    .whatsapp-nav,
+    .whatsapp-payment,
+    a[href*="wa.me"] {
+        padding: 11px 24px !important;
+        font-size: 14px !important;
     }
     
     /* MOBILE FORM FIXES */
