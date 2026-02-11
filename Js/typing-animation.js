@@ -22,9 +22,10 @@ class TypingAnimation {
     }
     
     init() {
-        // Adjust typing speed based on device (faster on mobile)
-        const titleSpeed = this.isMobile ? 50 : 100;  // Faster on mobile
-        const subtitleSpeed = this.isMobile ? 25 : 50;  // Faster on mobile
+        // Adjust typing speed based on device
+        // Mobile uses faster speeds to maintain user engagement and reduce wait time
+        const titleSpeed = this.isMobile ? 50 : 100;
+        const subtitleSpeed = this.isMobile ? 25 : 50;
         
         // Hide all elements initially
         this.heroTitle.style.opacity = '0';

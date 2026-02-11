@@ -520,10 +520,11 @@ body:not(.light-theme) .menu-toggle:hover {
     }
     
     /* User menu always visible on mobile next to hamburger */
+    /* Z-index hierarchy: navbar (9999) > user-menu (99998) > dropdown (99999) */
     .user-menu {
         position: fixed !important;
         top: 10px !important;
-        right: 75px !important;
+        right: 75px !important;  /* Positioned left of hamburger menu (50px width + 25px spacing) */
         z-index: 99998 !important;
         margin: 0 !important;
         display: inline-block !important;

@@ -144,6 +144,7 @@
     }
     
     /* Ensure dropdown is above everything */
+    /* Z-index hierarchy: navbar (9999) > dropdown (99999) > user-menu (99998) */
     .user-dropdown.active {
         z-index: 99999 !important;
     }
