@@ -342,55 +342,52 @@
 }
 </style>
 
-<!-- SCRIPTS - MOVED TO END OF BODY FOR PROPER LOADING -->
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/theme.js"></script>
 
-<!-- INLINE MENU TEST - SIMPLE AND DIRECT -->
+<!-- Custom JavaScript -->
+<script src="Js/auth.js"></script>
+<script src="Js/menu.js"></script>
+<script src="Js/theme.js"></script>
+
+<!-- Password Toggle Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Login page - DOM loaded - testing menu');
+    // Password toggle functionality for eye/eye-slash
+    const passwordInputs = document.querySelectorAll('input[type="password"]');
     
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav-links');
-    
-    console.log('Login page - Toggle element:', toggle);
-    console.log('Login page - Nav element:', nav);
-    
-    if (toggle && nav) {
-        console.log('Login page - Elements found - adding click handler');
+    passwordInputs.forEach(input => {
+        const wrapper = input.parentElement;
+        wrapper.style.position = 'relative';
         
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Login page - Menu clicked!');
-            nav.classList.toggle('active');
+        // Create toggle button if not exists
+        if (!wrapper.querySelector('.password-toggle')) {
+            const toggleBtn = document.createElement('button');
+            toggleBtn.type = 'button';
+            toggleBtn.className = 'password-toggle';
+            toggleBtn.setAttribute('aria-label', 'Toggle password visibility');
+            toggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            toggleBtn.style.cssText = 'position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--gold); font-size: 18px; z-index: 10;';
             
-            if (nav.classList.contains('active')) {
-                toggle.innerHTML = '×';
-                document.body.style.overflow = 'hidden';
-                console.log('Login page - Menu opened');
-            } else {
-                toggle.innerHTML = '☰';
-                document.body.style.overflow = '';
-                console.log('Login page - Menu closed');
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-                nav.classList.remove('active');
-                toggle.innerHTML = '☰';
-                document.body.style.overflow = '';
-                console.log('Login page - Menu closed by outside click');
-            }
-        });
-    } else {
-        console.error('Login page - Menu elements not found!');
-    }
+            wrapper.appendChild(toggleBtn);
+            
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    });
 });
 </script>
 

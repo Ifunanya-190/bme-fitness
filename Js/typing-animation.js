@@ -1,6 +1,13 @@
 // Automatic Typing Animation for Hero Text
 class TypingAnimation {
     constructor() {
+        // Check if hero section exists first (prevents errors on other pages)
+        const heroSection = document.querySelector('.hero');
+        if (!heroSection) {
+            console.log('No hero section found - skipping typing animation');
+            return;
+        }
+        
         this.heroTitle = document.querySelector('.hero h1');
         this.heroSubtitle = document.querySelector('.hero p');
         this.heroButton = document.querySelector('.hero .btn');
@@ -141,5 +148,6 @@ class TypingAnimation {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing typing animation...');
     new TypingAnimation();
 });

@@ -295,139 +295,14 @@
 </div>
 </footer>
 
-<!-- SCRIPTS - MOVED TO END OF BODY FOR PROPER LOADING -->
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
 
-<!-- INLINE MOBILE MENU SCRIPT --> SIMPLE AND DIRECT -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded - testing menu');
-    
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav-links');
-    
-    console.log('Toggle element:', toggle);
-    console.log('Nav element:', nav);
-    
-    if (toggle && nav) {
-        console.log('Elements found - adding click handler');
-        
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Menu clicked!');
-            nav.classList.toggle('active');
-            
-            if (nav.classList.contains('active')) {
-                toggle.innerHTML = '×';
-                document.body.style.overflow = 'hidden';
-                console.log('Menu opened');
-            } else {
-                toggle.innerHTML = '☰';
-                document.body.style.overflow = '';
-                console.log('Menu closed');
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-                nav.classList.remove('active');
-                toggle.innerHTML = '☰';
-                document.body.style.overflow = '';
-                console.log('Menu closed by outside click');
-            }
-        });
-    } else {
-        console.error('Menu elements not found!');
-    }
-});
-</script>
-
-<!-- TYPING ANIMATION SCRIPT -->
-<script>
-// Automatic Typing Animation for Hero Text
-class TypingAnimation {
-    constructor() {
-        this.heroTitle = document.querySelector('.hero h1');
-        this.heroSubtitle = document.querySelector('.hero p');
-        this.heroButton = document.querySelector('.hero .btn');
-        
-        // Check if elements exist
-        if (this.heroTitle && this.heroSubtitle && this.heroButton) {
-            this.isMobile = window.innerWidth <= 768;
-            this.init();
-        } else {
-            console.warn('Hero elements not found for typing animation');
-        }
-    }
-    
-    init() {
-        // Skip animation on mobile for better performance
-        if (this.isMobile) {
-            this.showMobileOptimized();
-            return;
-        }
-        
-        // Hide all elements initially
-        this.heroTitle.style.opacity = '0';
-        this.heroSubtitle.style.opacity = '0';
-        this.heroButton.style.opacity = '0';
-        
-        // Store original text
-        this.originalTitle = this.heroTitle.textContent;
-        this.originalSubtitle = this.heroSubtitle.textContent;
-        
-        // Clear content
-        this.heroTitle.textContent = '';
-        this.heroSubtitle.textContent = '';
-        
-        // Start animation sequence
-        setTimeout(() => this.typeText(this.heroTitle, this.originalTitle, 100, () => {
-            setTimeout(() => this.typeText(this.heroSubtitle, this.originalSubtitle, 50, () => {
-                setTimeout(() => this.showButton(), 500);
-            }), 500);
-        }), 500);
-    }
-    
-    // Mobile optimized version - show content immediately
-    showMobileOptimized() {
-        this.heroTitle.style.opacity = '1';
-        this.heroSubtitle.style.opacity = '1';
-        this.heroButton.style.opacity = '1';
-        this.heroButton.style.transform = 'translateY(0)';
-        console.log('Typing animation skipped on mobile - content shown immediately');
-    }
-    
-    typeText(element, text, speed, callback) {
-        element.style.opacity = '1';
-        let index = 0;
-        
-        const typeChar = () => {
-            if (index < text.length) {
-                element.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeChar, speed);
-            } else if (callback) {
-                callback();
-            }
-        };
-        
-        typeChar();
-    }
-    
-    showButton() {
-        this.heroButton.style.opacity = '1';
-        this.heroButton.style.transform = 'translateY(0)';
-    }
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Initializing typing animation...');
-    new TypingAnimation();
-});
-</script>
+<!-- Custom JavaScript - Load from Js/ folder -->
+<script src="Js/menu.js"></script>
+<script src="Js/theme.js"></script>
+<script src="Js/typing-animation.js"></script>
 
 </body>
 </html>
