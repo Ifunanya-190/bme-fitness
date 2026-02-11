@@ -157,6 +157,7 @@ async function signOut() {
         }
         localStorage.removeItem('bme_user');
         showSuccess('Successfully signed out!');
+        window.location.href = 'index.html';  // Redirect to home after signout
     } catch (error) {
         showError('Error signing out');
     }
