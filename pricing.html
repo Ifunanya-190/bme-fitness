@@ -103,50 +103,8 @@ Pay via WhatsApp
 </div>
 </section>
 
-<!-- UNIVERSAL MOBILE MENU SCRIPT -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Pricing page - DOM loaded - testing menu');
-    
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav-links');
-    
-    console.log('Pricing page - Toggle element:', toggle);
-    console.log('Pricing page - Nav element:', nav);
-    
-    if (toggle && nav) {
-        console.log('Pricing page - Elements found - adding click handler');
-        
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Pricing page - Menu clicked!');
-            nav.classList.toggle('active');
-            
-            if (nav.classList.contains('active')) {
-                toggle.innerHTML = '×';
-                document.body.style.overflow = 'hidden';
-                console.log('Pricing page - Menu opened');
-            } else {
-                toggle.innerHTML = '☰';
-                document.body.style.overflow = '';
-                console.log('Pricing page - Menu closed');
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-                nav.classList.remove('active');
-                toggle.innerHTML = '☰';
-                document.body.style.overflow = '';
-                console.log('Pricing page - Menu closed by outside click');
-            }
-        });
-    } else {
-        console.error('Pricing page - Menu elements not found!');
-    }
-});
-</script>
+<script src="Js/menu.js"></script>
+<script src="Js/theme.js"></script>
 
 </body>
 </html>
