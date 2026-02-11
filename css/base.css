@@ -115,18 +115,21 @@ body{
     width:100%;
 }
 
+/* NAVBAR BUTTON SIZING - Smaller for navbar */
 .nav-links .btn{
     background:linear-gradient(135deg, var(--gold), var(--gold-dark));
     color:#000;
-    padding:10px 20px;
+    padding:8px 20px;
     border-radius:25px;
     font-weight:600;
-    font-size:12px;
+    font-size:14px;
     text-transform:uppercase;
     letter-spacing:1px;
     transition:var(--transition-smooth);
     border:2px solid var(--gold);
     box-shadow:0 4px 15px rgba(201, 163, 78, 0.3);
+    margin-left:15px;
+    display:inline-block;
 }
 
 .nav-links .btn:hover{
@@ -141,17 +144,17 @@ body{
 .whatsapp-nav{
     background:linear-gradient(135deg, #25D366, #128C7E);
     color:#fff;
-    padding:10px 20px;
+    padding:8px 18px;
     border-radius:25px;
     font-weight:600;
-    font-size:12px;
+    font-size:14px;
     text-transform:uppercase;
     letter-spacing:1px;
     transition:var(--transition-smooth);
     border:2px solid #25D366;
     text-decoration:none;
     box-shadow:0 4px 15px rgba(37, 211, 102, 0.3);
-    margin-left:10px;
+    margin-left:15px;
 }
 
 .whatsapp-nav:hover{
@@ -373,6 +376,30 @@ body:not(.light-theme) .menu-toggle {
 
 body:not(.light-theme) .menu-toggle:hover {
     background: rgba(201, 163, 78, 0.2) !important;
+}
+
+/* DESKTOP NAVBAR SIZING */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .nav-links a:not(.btn):not(.whatsapp-nav) {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .nav-links .btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+    
+    .nav-links .whatsapp-nav {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
 }
 
 /* TABLET */
