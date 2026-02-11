@@ -240,8 +240,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    // Parse user data
-    const user = JSON.parse(userData);
+    // Parse user data with error handling
+    let user;
+    try {
+        user = JSON.parse(userData);
+    } catch (error) {
+        console.error('Error parsing user data:', error);
+        localStorage.removeItem('bme_user');
+        window.location.href = 'login.html';
+        return;
+    }
     
     // Display user information
     const userName = user.displayName || user.email.split('@')[0] || 'User';
@@ -261,34 +269,47 @@ document.addEventListener('DOMContentLoaded', function() {
     if (infoItems[3]) infoItems[3].textContent = membershipStatus.charAt(0).toUpperCase() + membershipStatus.slice(1);
     if (infoItems[4]) infoItems[4].textContent = joinDate;
     if (infoItems[5]) infoItems[5].textContent = 'Active';
-});
-
-// Edit Profile Button
-function editProfile() {
-    const user = JSON.parse(localStorage.getItem('bme_user'));
     
-    // Show prompt to edit name
-    const newName = prompt('Enter your new name:', user.displayName || '');
-    
-    if (newName && newName !== user.displayName) {
-        user.displayName = newName;
-        localStorage.setItem('bme_user', JSON.stringify(user));
-        
-        // Update display
-        document.querySelector('.profile-header h1').textContent = newName;
-        document.querySelector('.info-item span').textContent = newName;
-        
-        alert('Profile updated successfully!');
-    }
-}
-
-// Attach edit function to button
-document.addEventListener('DOMContentLoaded', function() {
+    // Attach edit function to button
     const editBtn = document.querySelector('.edit-profile-btn');
     if (editBtn) {
         editBtn.onclick = editProfile;
     }
 });
+
+// Edit Profile Button
+function editProfile() {
+    const userData = localStorage.getItem('bme_user');
+    if (!userData) {
+        alert('Please sign in first');
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    let user;
+    try {
+        user = JSON.parse(userData);
+    } catch (error) {
+        alert('Error loading user data. Please sign in again.');
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    // Show prompt to edit name
+    const newName = prompt('Enter your new name:', user.displayName || '');
+    
+    if (newName && newName.trim() && newName !== user.displayName) {
+        user.displayName = newName.trim();
+        localStorage.setItem('bme_user', JSON.stringify(user));
+        
+        // Update display
+        document.querySelector('.profile-header h1').textContent = newName.trim();
+        const infoItems = document.querySelectorAll('.info-item span');
+        if (infoItems[0]) infoItems[0].textContent = newName.trim();
+        
+        alert('Profile updated successfully!');
+    }
+}
 </script>
 
 </body>
