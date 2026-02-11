@@ -11,115 +11,134 @@
 <link rel="stylesheet" href="mobile-fixes.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
+body {
+    padding-top: 80px; /* Space for fixed navbar */
+}
+
 .profile-container {
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 900px;
+    margin: 60px auto 40px;
     padding: 20px;
 }
 
 .profile-header {
     background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     color: #000;
-    padding: 30px;
+    padding: 40px;
     border-radius: 15px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(201, 163, 78, 0.3);
 }
 
 .profile-avatar {
-    width: 100px;
-    height: 100px;
-    background: rgba(255,255,255,0.2);
+    width: 120px;
+    height: 120px;
+    background: rgba(0,0,0,0.2);
     border-radius: 50%;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 50px;
+    border: 4px solid rgba(0,0,0,0.3);
 }
 
 .profile-info {
-    background: var(--card-bg);
-    padding: 30px;
+    background: var(--deep);
+    padding: 40px;
     border-radius: 15px;
-    margin-bottom: 20px;
-    border: 1px solid var(--border);
+    margin-bottom: 30px;
+    border: 1px solid rgba(201, 163, 78, 0.2);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.profile-info h2 {
+    color: var(--gold);
+    margin-bottom: 25px;
+    font-size: 24px;
+    border-bottom: 2px solid rgba(201, 163, 78, 0.3);
+    padding-bottom: 15px;
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
 }
 
 .info-item {
-    padding: 15px;
-    background: var(--bg);
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
     border-radius: 10px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(201, 163, 78, 0.2);
 }
 
 .info-item label {
     display: block;
     color: var(--gold);
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .info-item span {
-    color: var(--text);
-    font-size: 14px;
+    color: var(--gray);
+    font-size: 15px;
+    display: block;
+    word-wrap: break-word;
 }
 
 .edit-profile-btn {
     background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     color: #000;
     border: none;
-    padding: 12px 30px;
+    padding: 14px 35px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 25px;
     transition: var(--transition-smooth);
+    font-size: 15px;
+    display: inline-block;
 }
 
 .edit-profile-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(201, 163, 78, 0.4);
+    box-shadow: 0 8px 25px rgba(201, 163, 78, 0.5);
 }
 
-/* Light theme support */
-body.light-theme .profile-info {
-    background: var(--light-card-bg);
-    border: 1px solid var(--light-border);
-}
-
-body.light-theme .info-item {
-    background: var(--light-bg);
-    border: 1px solid var(--light-border);
-}
-
-body.light-theme .info-item label {
-    color: var(--gold);
-}
-
-body.light-theme .info-item span {
-    color: var(--light-text);
-}
-
+/* Mobile responsiveness */
 @media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
     .profile-container {
-        margin: 20px;
+        margin: 30px 15px;
         padding: 10px;
     }
     
     .profile-header {
-        padding: 20px;
+        padding: 25px 15px;
+    }
+    
+    .profile-avatar {
+        width: 90px;
+        height: 90px;
+        font-size: 40px;
     }
     
     .profile-info {
-        padding: 20px;
+        padding: 25px 15px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
 </style>
@@ -154,43 +173,45 @@ body.light-theme .info-item span {
 <section>
 <div class="container">
 <div class="profile-container">
+    <!-- Profile Header -->
     <div class="profile-header">
         <div class="profile-avatar">
             <i class="fas fa-user"></i>
         </div>
-        <h1 id="profileName">Loading...</h1>
-        <p id="profileEmail">Loading...</p>
+        <h1>Loading...</h1>
+        <p>Loading...</p>
     </div>
 
+    <!-- Profile Information -->
     <div class="profile-info">
         <h2>Profile Information</h2>
         <div class="info-grid">
             <div class="info-item">
                 <label>Full Name</label>
-                <span id="displayName">Not set</span>
+                <span>Loading...</span>
             </div>
             <div class="info-item">
                 <label>Email Address</label>
-                <span id="email">Not set</span>
+                <span>Loading...</span>
+            </div>
+            <div class="info-item">
+                <label>Phone Number</label>
+                <span>Loading...</span>
+            </div>
+            <div class="info-item">
+                <label>Membership Type</label>
+                <span>Loading...</span>
             </div>
             <div class="info-item">
                 <label>Member Since</label>
-                <span id="memberSince">Not set</span>
+                <span>Loading...</span>
             </div>
             <div class="info-item">
-                <label>User ID</label>
-                <span id="userId">Not set</span>
-            </div>
-            <div class="info-item">
-                <label>Membership Status</label>
-                <span id="membershipStatus">Free Member</span>
-            </div>
-            <div class="info-item">
-                <label>Last Login</label>
-                <span id="lastLogin">Not set</span>
+                <label>Account Status</label>
+                <span>Loading...</span>
             </div>
         </div>
-        <button class="edit-profile-btn" onclick="editProfile()">
+        <button class="edit-profile-btn">
             <i class="fas fa-edit"></i> Edit Profile
         </button>
     </div>
@@ -198,116 +219,77 @@ body.light-theme .info-item span {
 </div>
 </section>
 
-<script>
-// Load profile data
-document.addEventListener('DOMContentLoaded', function() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // Update profile header
-            document.getElementById('profileName').textContent = user.displayName || 'User';
-            document.getElementById('profileEmail').textContent = user.email;
-            
-            // Update profile info
-            document.getElementById('displayName').textContent = user.displayName || 'Not set';
-            document.getElementById('email').textContent = user.email;
-            document.getElementById('memberSince').textContent = user.metadata.creationTime ? 
-                new Date(user.metadata.creationTime).toLocaleDateString() : 'Unknown';
-            document.getElementById('userId').textContent = user.uid;
-            document.getElementById('membershipStatus').textContent = 'Free Member';
-            document.getElementById('lastLogin').textContent = new Date().toLocaleDateString();
-        } else {
-            // Redirect to login if not authenticated
-            window.location.href = 'login.html';
-        }
-    });
-});
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
 
-function editProfile() {
-    const user = firebase.auth().currentUser;
-    if (!user) {
-        alert('Please sign in first');
-        return;
-    }
-    
-    // Create edit form modal
-    const modal = document.createElement('div');
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-    `;
-    
-    modal.innerHTML = `
-        <div style="background: var(--card-bg); padding: 30px; border-radius: 15px; max-width: 400px; width: 90%; border: 1px solid var(--border);">
-            <h2 style="margin-bottom: 20px; color: var(--text);">Edit Profile</h2>
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 5px; color: var(--gold); font-weight: 600;">Display Name</label>
-                <input type="text" id="editName" value="${user.displayName || ''}" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 5px; background: var(--bg); color: var(--text);">
-            </div>
-            <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 5px; color: var(--gold); font-weight: 600;">Email</label>
-                <input type="email" value="${user.email}" disabled style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 5px; background: var(--bg); color: var(--text-secondary);">
-            </div>
-            <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                <button onclick="closeProfileModal()" style="padding: 10px 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text); border-radius: 5px; cursor: pointer;">Cancel</button>
-                <button onclick="saveProfile()" style="padding: 10px 20px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #000; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Save</button>
-            </div>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-    
-    // Add event listener to close modal when clicking outside
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeProfileModal();
-        }
-    });
-}
-
-function closeProfileModal() {
-    const modal = document.querySelector('div[style*="position: fixed"]');
-    if (modal) {
-        modal.remove();
-    }
-}
-
-function saveProfile() {
-    const user = firebase.auth().currentUser;
-    const newName = document.getElementById('editName').value.trim();
-    
-    if (!newName) {
-        alert('Please enter a name');
-        return;
-    }
-    
-    // Update profile
-    user.updateProfile({
-        displayName: newName
-    }).then(() => {
-        // Update display
-        document.getElementById('profileName').textContent = newName;
-        document.getElementById('displayName').textContent = newName;
-        
-        // Close modal
-        closeProfileModal();
-        
-        alert('Profile updated successfully!');
-    }).catch((error) => {
-        alert('Error updating profile: ' + error.message);
-    });
-}
-</script>
-
+<!-- BME Scripts -->
 <script src="Js/menu.js"></script>
 <script src="Js/theme.js"></script>
+<script src="Js/auth.js"></script>
+
+<!-- Profile Page Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if user is logged in
+    const userData = localStorage.getItem('bme_user');
+    
+    if (!userData) {
+        // Not logged in - redirect to login page
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    // Parse user data
+    const user = JSON.parse(userData);
+    
+    // Display user information
+    const userName = user.displayName || user.email.split('@')[0] || 'User';
+    const userEmail = user.email || 'No email provided';
+    const membershipStatus = user.membershipStatus || 'Free';
+    const joinDate = user.lastLogin ? new Date(user.lastLogin).toLocaleDateString() : 'N/A';
+    
+    // Update profile header
+    document.querySelector('.profile-header h1').textContent = userName;
+    document.querySelector('.profile-header p').textContent = userEmail;
+    
+    // Update info items
+    const infoItems = document.querySelectorAll('.info-item span');
+    if (infoItems[0]) infoItems[0].textContent = userName;
+    if (infoItems[1]) infoItems[1].textContent = userEmail;
+    if (infoItems[2]) infoItems[2].textContent = 'Not provided';
+    if (infoItems[3]) infoItems[3].textContent = membershipStatus.charAt(0).toUpperCase() + membershipStatus.slice(1);
+    if (infoItems[4]) infoItems[4].textContent = joinDate;
+    if (infoItems[5]) infoItems[5].textContent = 'Active';
+});
+
+// Edit Profile Button
+function editProfile() {
+    const user = JSON.parse(localStorage.getItem('bme_user'));
+    
+    // Show prompt to edit name
+    const newName = prompt('Enter your new name:', user.displayName || '');
+    
+    if (newName && newName !== user.displayName) {
+        user.displayName = newName;
+        localStorage.setItem('bme_user', JSON.stringify(user));
+        
+        // Update display
+        document.querySelector('.profile-header h1').textContent = newName;
+        document.querySelector('.info-item span').textContent = newName;
+        
+        alert('Profile updated successfully!');
+    }
+}
+
+// Attach edit function to button
+document.addEventListener('DOMContentLoaded', function() {
+    const editBtn = document.querySelector('.edit-profile-btn');
+    if (editBtn) {
+        editBtn.onclick = editProfile;
+    }
+});
+</script>
 
 </body>
 </html>
