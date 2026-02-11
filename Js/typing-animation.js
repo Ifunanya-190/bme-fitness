@@ -24,18 +24,37 @@ class TypingAnimation {
     init() {
         // Skip animation on mobile for better performance
         if (this.isMobile) {
+            console.log('Mobile detected - showing optimized version');
             this.showMobileOptimized();
             return;
         }
+        
+        console.log('Desktop detected - starting typing animation');
+        
+        // Disable CSS animations on desktop to prevent conflicts
+        this.heroTitle.style.animation = 'none';
+        this.heroSubtitle.style.animation = 'none';
+        this.heroButton.style.animation = 'none';
         
         // Hide all elements initially
         this.heroTitle.style.opacity = '0';
         this.heroSubtitle.style.opacity = '0';
         this.heroButton.style.opacity = '0';
+        this.heroButton.style.transform = 'translateY(0)';
         
         // Store original text
         this.originalTitle = this.heroTitle.textContent;
         this.originalSubtitle = this.heroSubtitle.textContent;
+        
+        // Verify text content exists
+        if (!this.originalTitle || !this.originalSubtitle) {
+            console.error('Hero text content is missing');
+            this.showMobileOptimized();
+            return;
+        }
+        
+        console.log(`Typing title: "${this.originalTitle}"`);
+        console.log(`Typing subtitle: "${this.originalSubtitle}"`);
         
         // Clear content
         this.heroTitle.textContent = '';

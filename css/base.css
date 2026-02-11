@@ -138,41 +138,49 @@ body{
     display:none;
 }
 
-.whatsapp-nav{
-    background:linear-gradient(135deg, #25D366, #128C7E);
-    color:#fff;
-    padding:10px 20px;
-    border-radius:25px;
-    font-weight:600;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    transition:var(--transition-smooth);
-    border:2px solid #25D366;
-    text-decoration:none;
-    box-shadow:0 4px 15px rgba(37, 211, 102, 0.3);
-    margin-left:10px;
+/* WhatsApp specific button styling */
+.whatsapp-nav,
+.whatsapp-payment {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    border: 2px solid #25D366;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    font-size: 14px;
+    margin-left: 10px;
 }
 
-.whatsapp-nav:hover{
-    transform:translateY(-3px);
-    box-shadow:0 6px 20px rgba(37, 211, 102, 0.5);
-    color:#fff;
+.whatsapp-nav:hover,
+.whatsapp-payment:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    background: linear-gradient(135deg, #128C7E, #075E54);
+    color: #fff !important;
 }
 
-/* BUTTON */
+/* BUTTON STYLES - Improved Sizing */
 .btn{
-    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
-    color:#000;
-    padding:12px 28px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:600;
-    transition:var(--transition-smooth);
-    border:1px solid var(--gold);
-    box-shadow:0 4px 15px rgba(201, 163, 78, 0.2);
-    position:relative;
-    overflow:hidden;
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 15px rgba(201, 163, 78, 0.3);
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn::before{
@@ -188,11 +196,98 @@ body{
 
 .btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 6px 20px rgba(201, 163, 78, 0.4);
+    box-shadow: 0 8px 25px rgba(201, 163, 78, 0.5);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
 }
 
 .btn:hover::before{
     left:100%;
+}
+
+/* USER MENU - After Login */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(201, 163, 78, 0.3);
+}
+
+.user-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(201, 163, 78, 0.5);
+}
+
+.user-avatar i {
+    font-size: 20px;
+    color: #000;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: var(--deep);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.user-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-greeting {
+    padding: 15px 20px;
+    color: var(--gold);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(201, 163, 78, 0.2);
+    font-size: 14px;
+}
+
+.user-dropdown hr {
+    border: none;
+    border-top: 1px solid rgba(201, 163, 78, 0.2);
+    margin: 0;
+}
+
+.user-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--gray);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    font-size: 14px;
+}
+
+.user-dropdown a:hover {
+    background: rgba(201, 163, 78, 0.1);
+    color: var(--gold);
+}
+
+.user-dropdown a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
 }
 
 /* SECTIONS */
@@ -484,13 +579,39 @@ body:not(.light-theme) .menu-toggle:hover {
     
     /* MOBILE BUTTON FIXES */
     .btn {
-        padding: 12px 20px !important;
+        padding: 12px 24px !important;
         font-size: 14px !important;
+        width: auto !important;
         -webkit-tap-highlight-color: transparent !important;
         min-height: 44px !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
+    }
+    
+    .whatsapp-nav,
+    .whatsapp-payment {
+        padding: 10px 20px !important;
+        font-size: 13px !important;
+    }
+    
+    .nav-links .btn {
+        display: block !important;
+        width: 90% !important;
+        margin: 10px auto !important;
+        text-align: center !important;
+    }
+    
+    /* Mobile adjustments for user menu */
+    .user-menu {
+        order: 10 !important;
+        margin-top: 20px !important;
+    }
+    
+    .user-dropdown {
+        right: 0 !important;
+        left: auto !important;
+        min-width: 200px !important;
     }
     
     /* MOBILE FORM FIXES */
