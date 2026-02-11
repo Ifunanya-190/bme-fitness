@@ -22,11 +22,9 @@ class TypingAnimation {
     }
     
     init() {
-        // Skip animation on mobile for better performance
-        if (this.isMobile) {
-            this.showMobileOptimized();
-            return;
-        }
+        // Adjust typing speed based on device (faster on mobile)
+        const titleSpeed = this.isMobile ? 50 : 100;  // Faster on mobile
+        const subtitleSpeed = this.isMobile ? 25 : 50;  // Faster on mobile
         
         // Hide all elements initially
         this.heroTitle.style.opacity = '0';
@@ -41,9 +39,9 @@ class TypingAnimation {
         this.heroTitle.textContent = '';
         this.heroSubtitle.textContent = '';
         
-        // Start animation sequence
-        setTimeout(() => this.typeText(this.heroTitle, this.originalTitle, 100, () => {
-            setTimeout(() => this.typeText(this.heroSubtitle, this.originalSubtitle, 50, () => {
+        // Start animation with device-specific speed
+        setTimeout(() => this.typeText(this.heroTitle, this.originalTitle, titleSpeed, () => {
+            setTimeout(() => this.typeText(this.heroSubtitle, this.originalSubtitle, subtitleSpeed, () => {
                 setTimeout(() => this.showButton(), 500);
             }), 500);
         }), 500);
