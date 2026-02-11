@@ -40,7 +40,6 @@ class TypingAnimation {
         this.heroTitle.style.opacity = '0';
         this.heroSubtitle.style.opacity = '0';
         this.heroButton.style.opacity = '0';
-        this.heroButton.style.transform = 'translateY(0)';
         
         // Store original text
         this.originalTitle = this.heroTitle.textContent;
