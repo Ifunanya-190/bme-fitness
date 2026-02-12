@@ -14,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme) {
         document.body.classList.toggle('light-theme', savedTheme === 'light');
         updateThemeIcon(savedTheme === 'light');
+        
+        // Force update user dropdown if it exists
+        setTimeout(() => {
+            const userDropdown = document.getElementById('userDropdown');
+            if (userDropdown) {
+                userDropdown.style.backgroundColor = (savedTheme === 'light') ? '#ffffff' : '#1a1a1a';
+            }
+        }, 100);
     } else {
         // Check system preference
         const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -26,6 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const isLight = document.body.classList.toggle('light-theme');
         localStorage.setItem('bme-theme', isLight ? 'light' : 'dark');
         updateThemeIcon(isLight);
+        
+        // Force update user dropdown if it exists
+        const userDropdown = document.getElementById('userDropdown');
+        if (userDropdown) {
+            userDropdown.style.backgroundColor = isLight ? '#ffffff' : '#1a1a1a';
+        }
         
         // Add transition effect
         document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';

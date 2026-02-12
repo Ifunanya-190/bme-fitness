@@ -686,5 +686,44 @@ body.light-theme footer{
     transform: translateY(0);
 }
 
+/* ====================================== */
+/* LIGHT THEME - USER MENU ADJUSTMENTS   */
+/* ====================================== */
+
+body.light-theme .user-dropdown {
+    background-color: #ffffff !important;  /* White background in light mode */
+    border: 2px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);  /* Lighter shadow */
+}
+
+body.light-theme .user-greeting {
+    color: var(--gold);
+    border-bottom-color: rgba(201, 163, 78, 0.3);
+    background: rgba(201, 163, 78, 0.05);  /* Very light gold tint */
+}
+
+body.light-theme .user-dropdown a {
+    color: #333 !important;  /* Dark text in light mode */
+}
+
+body.light-theme .user-dropdown a:hover {
+    background: rgba(201, 163, 78, 0.15);  /* Light gold hover */
+    color: var(--gold) !important;
+}
+
+body.light-theme .user-dropdown hr {
+    border-top-color: rgba(201, 163, 78, 0.3);
+}
+
+/* Light theme user avatar (no change needed, stays gold) */
+body.light-theme .user-avatar {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    box-shadow: 0 4px 15px rgba(201, 163, 78, 0.4);
+}
+
+body.light-theme .user-avatar:hover {
+    box-shadow: 0 6px 20px rgba(201, 163, 78, 0.6);
+}
+
 /* AUTH STYLES IMPORT */
 @import url('auth.css');
