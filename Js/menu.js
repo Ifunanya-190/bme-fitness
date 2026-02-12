@@ -5,19 +5,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add null checks to prevent errors
     if (toggle && nav) {
+        console.log('Menu elements found, setting up event listeners');
+        
         toggle.addEventListener("click", function(e) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('Menu toggle clicked');
             nav.classList.toggle("active");
+            
             // Change icon from ☰ to × when menu is active
             if (nav.classList.contains("active")) {
                 toggle.innerHTML = "×";
                 // Prevent body scroll when menu is open
                 document.body.style.overflow = 'hidden';
+                console.log('Menu opened');
             } else {
                 toggle.innerHTML = "☰";
                 // Restore body scroll when menu is closed
                 document.body.style.overflow = '';
+                console.log('Menu closed');
             }
         });
         
@@ -28,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggle.innerHTML = "☰";
                 // Restore body scroll when menu is closed
                 document.body.style.overflow = '';
+                console.log('Menu closed by outside click');
             }
         });
         
@@ -37,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 nav.classList.remove("active");
                 toggle.innerHTML = "☰";
                 document.body.style.overflow = '';
+                console.log('Menu closed by Escape key');
             }
         });
         
@@ -46,9 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 nav.classList.remove("active");
                 toggle.innerHTML = "☰";
                 document.body.style.overflow = '';
+                console.log('Menu closed by window resize');
             }
         });
     } else {
-        console.warn('Menu elements not found - check HTML structure');
+        console.error('Menu elements not found - check HTML structure');
+        console.log('Toggle element:', toggle);
+        console.log('Nav element:', nav);
     }
 });

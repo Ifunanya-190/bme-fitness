@@ -5,10 +5,12 @@ class TypingAnimation {
         this.heroSubtitle = document.querySelector('.hero p');
         this.heroButton = document.querySelector('.hero .btn');
         
-        // Check if elements exist and if it's mobile
+        // Check if elements exist
         if (this.heroTitle && this.heroSubtitle && this.heroButton) {
             this.isMobile = window.innerWidth <= 768;
             this.init();
+        } else {
+            console.warn('Hero elements not found for typing animation');
         }
     }
     
