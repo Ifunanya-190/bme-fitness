@@ -544,22 +544,30 @@ document.getElementById('editProfileForm')?.addEventListener('submit', function(
     
     const user = JSON.parse(localStorage.getItem('bme_user') || '{}');
     
+    // Get new values from form
+    const newName = document.getElementById('editName').value;
+    const newEmail = document.getElementById('editEmail').value;
+    const newPhone = document.getElementById('editPhone').value;
+    
     // Update user data
-    user.displayName = document.getElementById('editName').value;
-    user.email = document.getElementById('editEmail').value;
-    user.phoneNumber = document.getElementById('editPhone').value;
+    user.displayName = newName;
+    user.email = newEmail;
+    user.phoneNumber = newPhone;
     
     // Save to localStorage
     localStorage.setItem('bme_user', JSON.stringify(user));
     
+    // Update display without reloading
+    document.querySelector('.profile-header h1').textContent = newName;
+    document.querySelector('.profile-header p').textContent = newEmail;
+    
+    const infoItems = document.querySelectorAll('.info-item span');
+    if (infoItems[0]) infoItems[0].textContent = newName;
+    if (infoItems[1]) infoItems[1].textContent = newEmail;
+    if (infoItems[2]) infoItems[2].textContent = newPhone;
+    
     // Close modal
     closeEditModal();
-    
-    // Show success message
-    alert('Profile updated successfully!');
-    
-    // Update display
-    location.reload();  // Reload to show new data
 });
 
 // Update edit button click handler

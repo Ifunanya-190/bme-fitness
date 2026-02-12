@@ -317,7 +317,7 @@ function showUserMenu(user) {
                 <a href="schedule.html"><i class="fas fa-calendar"></i> My Schedule</a>
                 <a href="progress.html"><i class="fas fa-chart-line"></i> Progress</a>
                 <hr>
-                <a href="#" onclick="signOut(); return false;"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                <a href="javascript:void(0)" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
             </div>
         </div>
     `;
