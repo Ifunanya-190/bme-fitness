@@ -1,0 +1,437 @@
+/* PAGE HERO */
+.page-hero{
+    height:45vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
+    url('../images/gym2.jpg') center/cover;
+    position:relative;
+    overflow:hidden;
+}
+
+.page-hero::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.page-hero .container{
+    position:relative;
+    z-index:2;
+}
+
+.page-hero h1{
+    font-size:40px;
+    letter-spacing:3px;
+    color:var(--gold);
+    text-shadow:0 0 20px rgba(201, 163, 78, 0.3);
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeInUp 0.8s forwards;
+}
+
+.page-hero p{
+    color:var(--gray);
+    margin-top:10px;
+    font-size:18px;
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeInUp 0.8s 0.2s forwards;
+}
+
+/* SCHEDULE SECTION */
+.schedule-section{
+    padding:80px 0;
+    background:linear-gradient(135deg, var(--deep) 0%, var(--black) 100%);
+}
+
+/* FILTER TABS */
+.schedule-filters{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:50px 0 30px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    padding:10px 20px;
+    background:var(--deep);
+    border:1px solid rgba(255,255,255,.1);
+    color:var(--gray);
+    border-radius:25px;
+    cursor:pointer;
+    transition:var(--transition-smooth);
+    font-size:14px;
+    font-weight:500;
+}
+
+.filter-btn:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    transform:translateY(-2px);
+}
+
+.filter-btn.active{
+    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color:#000;
+    border-color:var(--gold);
+    box-shadow:0 4px 15px rgba(201, 163, 78, 0.3);
+}
+
+/* SCHEDULE TABLE */
+.schedule-table-wrapper{
+    background:var(--deep);
+    border-radius:15px;
+    padding:30px;
+    border:1px solid rgba(255,255,255,.05);
+    overflow-x:auto;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.schedule-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:800px;
+}
+
+.schedule-table th,
+.schedule-table td{
+    padding:16px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.schedule-table th{
+    background:linear-gradient(135deg, rgba(201, 163, 78, 0.1), transparent);
+    color:var(--gold);
+    font-weight:600;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.schedule-table td{
+    color:var(--gray);
+    font-size:14px;
+    transition:var(--transition-smooth);
+}
+
+.schedule-table tr:hover td{
+    background:rgba(201, 163, 78, 0.05);
+    color:var(--white);
+}
+
+.class-name{
+    font-weight:600;
+    color:var(--gold);
+}
+
+.class-instructor{
+    color:var(--white);
+    font-size:13px;
+}
+
+.class-time{
+    font-weight:500;
+}
+
+.class-level{
+    padding:4px 8px;
+    border-radius:12px;
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+}
+
+.level-beginner{
+    background:rgba(40, 167, 69, 0.2);
+    color:#28a745;
+}
+
+.level-intermediate{
+    background:rgba(255, 193, 7, 0.2);
+    color:#ffc107;
+}
+
+.level-advanced{
+    background:rgba(220, 53, 69, 0.2);
+    color:#dc3545;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 40px 0;
+    background: var(--deep);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(201, 163, 78, 0.2);
+}
+
+th {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #000;
+    font-weight: 700;
+    text-align: left;
+    padding: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+th:first-child {
+    border-top-left-radius: 15px;
+}
+
+th:last-child {
+    border-top-right-radius: 15px;
+}
+
+td {
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    font-size: 15px;
+    transition: var(--transition-smooth);
+}
+
+tr:hover td {
+    background: rgba(201, 163, 78, 0.1);
+    transform: scale(1.02);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) td {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+tr:nth-child(odd) td {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* WEEKLY VIEW */
+.weekly-schedule{
+    margin-top:50px;
+}
+
+.day-schedule{
+    background:var(--deep);
+    border-radius:12px;
+    margin-bottom:25px;
+    border:1px solid rgba(255,255,255,.05);
+    overflow:hidden;
+    transition:var(--transition-smooth);
+}
+
+.day-schedule:hover{
+    border-color:var(--gold);
+    box-shadow:0 10px 30px rgba(201, 163, 78, 0.2);
+}
+
+.day-header{
+    background:linear-gradient(135deg, rgba(201, 163, 78, 0.1), transparent);
+    padding:20px 25px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.day-name{
+    color:var(--gold);
+    font-size:18px;
+    font-weight:600;
+}
+
+.day-date{
+    color:var(--gray);
+    font-size:14px;
+}
+
+.classes-list{
+    padding:20px;
+}
+
+.class-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    margin-bottom:15px;
+    background:rgba(0,0,0,0.2);
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,.05);
+    transition:var(--transition-smooth);
+}
+
+.class-item:hover{
+    background:rgba(201, 163, 78, 0.05);
+    border-color:var(--gold);
+    transform:translateX(5px);
+}
+
+.class-info{
+    flex:1;
+}
+
+.class-title{
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.class-details{
+    color:var(--gray);
+    font-size:13px;
+}
+
+.class-actions{
+    display:flex;
+    gap:10px;
+}
+
+.book-btn{
+    padding:8px 16px;
+    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color:#000;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:600;
+    transition:var(--transition-smooth);
+    border:1px solid var(--gold);
+}
+
+.book-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 15px rgba(201, 163, 78, 0.4);
+}
+
+.book-btn.booked{
+    background:var(--gray);
+    color:var(--white);
+    border-color:var(--gray);
+    cursor:not-allowed;
+}
+
+/* INSTRUCTORS SECTION */
+.instructors-section{
+    padding:80px 0;
+    background:var(--black);
+}
+
+.instructors-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.instructor-card{
+    background:var(--deep);
+    border-radius:12px;
+    padding:30px 20px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.05);
+    transition:var(--transition-smooth);
+}
+
+.instructor-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 40px rgba(201, 163, 78, 0.2);
+    border-color:var(--gold);
+}
+
+.instructor-avatar{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    margin:0 auto 15px;
+    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    color:#000;
+    font-weight:700;
+}
+
+.instructor-name{
+    color:var(--gold);
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.instructor-specialty{
+    color:var(--gray);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.instructor-bio{
+    color:var(--gray);
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+    .page-hero h1{
+        font-size:28px;
+    }
+    
+    .schedule-filters{
+        gap:10px;
+    }
+    
+    .filter-btn{
+        padding:8px 16px;
+        font-size:12px;
+    }
+    
+    .schedule-table-wrapper{
+        padding:20px 10px;
+    }
+    
+    .schedule-table th,
+    .schedule-table td{
+        padding:12px 8px;
+        font-size:12px;
+    }
+    
+    .day-header{
+        padding:15px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:5px;
+    }
+    
+    .class-item{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+    
+    .class-actions{
+        width:100%;
+        justify-content:flex-end;
+    }
+    
+    .instructors-grid{
+        grid-template-columns:1fr;
+    }
+}

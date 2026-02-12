@@ -1,0 +1,348 @@
+/* PAGE HERO */
+.page-hero{
+    height:45vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
+    url('../images/gym2.jpg') center/cover;
+    position:relative;
+    overflow:hidden;
+}
+
+.page-hero::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.page-hero .container{
+    position:relative;
+    z-index:2;
+}
+
+.page-hero h1{
+    font-size:40px;
+    letter-spacing:3px;
+    color:var(--gold);
+    text-shadow:0 0 20px rgba(201, 163, 78, 0.3);
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeInUp 0.8s forwards;
+}
+
+.page-hero p{
+    color:var(--gray);
+    margin-top:10px;
+    font-size:18px;
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeInUp 0.8s 0.2s forwards;
+}
+
+/* PRICING SECTION */
+.pricing-section{
+    padding:80px 0;
+    background:linear-gradient(135deg, var(--deep) 0%, var(--black) 100%);
+}
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+    margin-top:50px;
+}
+
+.pricing-card{
+    background:var(--deep);
+    border-radius:15px;
+    padding:40px 30px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.05);
+    transition:var(--transition-smooth);
+    position:relative;
+    overflow:hidden;
+}
+
+.pricing-card.featured{
+    border-color:var(--gold);
+    transform:scale(1.05);
+    box-shadow:0 15px 40px rgba(201, 163, 78, 0.3);
+}
+
+.pricing-card.featured::before{
+    content:'MOST POPULAR';
+    position:absolute;
+    top:15px;
+    right:-30px;
+    background:var(--gold);
+    color:#000;
+    padding:5px 40px;
+    font-size:11px;
+    font-weight:600;
+    transform:rotate(45deg);
+    box-shadow:0 4px 15px rgba(201, 163, 78, 0.3);
+}
+
+.pricing-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(201, 163, 78, 0.2);
+}
+
+.pricing-card.featured:hover{
+    transform:scale(1.05) translateY(-10px);
+}
+
+.plan-name{
+    font-size:24px;
+    color:var(--gold);
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.price{
+    font-size:48px;
+    color:var(--gold);
+    margin:20px 0;
+    font-weight:700;
+    text-shadow:0 0 20px rgba(201, 163, 78, 0.3);
+}
+
+.price span{
+    font-size:18px;
+    color:var(--gray);
+    font-weight:400;
+}
+
+.plan-features{
+    list-style:none;
+    margin:30px 0;
+}
+
+.plan-features li{
+    color:var(--gray);
+    margin:15px 0;
+    padding-left:25px;
+    position:relative;
+}
+
+.plan-features li::before{
+    content:'✓';
+    position:absolute;
+    left:0;
+    color:var(--gold);
+    font-weight:700;
+}
+
+.plan-btn{
+    width:100%;
+    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color:#000;
+    padding:15px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:var(--transition-smooth);
+    border:1px solid var(--gold);
+    display:inline-block;
+}
+
+.plan-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 20px rgba(201, 163, 78, 0.4);
+}
+
+/* COMPARISON TABLE */
+.comparison-section{
+    padding:80px 0;
+    background:var(--black);
+}
+
+.comparison-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:50px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.comparison-table th,
+.comparison-table td{
+    padding:20px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.comparison-table th{
+    background:var(--deep);
+    color:var(--gold);
+    font-weight:600;
+    font-size:16px;
+}
+
+.comparison-table td{
+    background:var(--deep);
+    color:var(--gray);
+}
+
+.comparison-table .feature-name{
+    text-align:left;
+    color:var(--white);
+    font-weight:500;
+}
+
+.comparison-table .check{
+    color:var(--gold);
+    font-size:20px;
+}
+
+.comparison-table .cross{
+    color:var(--gray);
+    font-size:20px;
+}
+
+/* FAQ SECTION */
+.faq-section{
+    padding:80px 0;
+    background:linear-gradient(135deg, var(--deep) 0%, var(--black) 100%);
+}
+
+.faq-grid{
+    max-width:800px;
+    margin:50px auto 0;
+}
+
+.faq-item{
+    background:var(--deep);
+    border-radius:10px;
+    margin-bottom:20px;
+    border:1px solid rgba(255,255,255,.05);
+    overflow:hidden;
+    transition:var(--transition-smooth);
+}
+
+.faq-item:hover{
+    border-color:var(--gold);
+}
+
+.faq-question{
+    padding:25px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--gold);
+    font-weight:600;
+    transition:var(--transition-smooth);
+}
+
+.faq-question:hover{
+    background:rgba(201, 163, 78, 0.05);
+}
+
+.faq-icon{
+    font-size:20px;
+    transition:var(--transition-smooth);
+}
+
+.faq-item.active .faq-icon{
+    transform:rotate(45deg);
+}
+
+.faq-answer{
+    padding:0 25px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s, padding 0.3s;
+    color:var(--gray);
+    line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+    padding:0 25px 25px;
+    max-height:300px;
+}
+
+/* WHATSAPP PAYMENT BUTTONS */
+.whatsapp-payment {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+    border: 2px solid #25D366;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-payment:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    color: #fff;
+}
+
+.whatsapp-payment::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.whatsapp-payment:hover::before {
+    left: 100%;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+    .page-hero h1{
+        font-size:28px;
+    }
+    
+    .pricing-grid{
+        grid-template-columns:1fr;
+    }
+    
+    .pricing-card.featured{
+        transform:scale(1);
+    }
+    
+    .comparison-table{
+        font-size:14px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td{
+        padding:15px 10px;
+    }
+    
+    .feature-name{
+        min-width:120px;
+    }
+    
+    .whatsapp-payment {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}

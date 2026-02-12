@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BME Fitness | Body Mind Energy</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/transformations.css">
+<link rel="stylesheet" href="css/auth-enhancements.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<script src="js/menu.js"></script>
+<script src="js/theme.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+<script src="js/auth.js"></script>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+<div class="container nav-flex">
+
+<div class="logo">BME FITNESS</div>
+
+<div class="menu-toggle" id="menu-toggle">
+    ☰
+</div>
+
+<nav class="nav-links" id="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Training</a>
+<a href="pricing.html">Pricing</a>
+<a href="transformations.html">Results</a>
+<a href="trainers.html">Trainers</a>
+<a href="schedule.html">Schedule</a>
+<a href="contact.html">Contact</a>
+<a href="login.html" class="btn">Sign Up</a>
+<a href="https://wa.me/2349012345678?text=I'm%20interested%20in%20BME%20Services" class="whatsapp-nav">WhatsApp</a>
+</nav>
+</div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+<div class="container">
+<h1>Success Stories</h1>
+<p>Real transformations from our dedicated members</p>
+</div>
+</section>
+
+<!-- TRANSFORMATIONS SECTION -->
+<section>
+<div class="container">
+<div class="section-title">
+<h2>Member Transformations</h2>
+<p>Inspiring journeys of strength, discipline, and energy</p>
+</div>
+
+<div class="transformations-grid">
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>John's 6-Month Transformation</h3>
+        <div class="transformation-stats">
+            <span class="stat">-25 lbs</span>
+            <span class="stat">+15 lbs muscle</span>
+            <span class="stat">-4% body fat</span>
+        </div>
+        <p class="transformation-story">"BME completely transformed my life. The personalized training and nutrition guidance helped me lose 25 pounds while gaining muscle. I've never felt stronger or more confident!"</p>
+        <div class="transformation-meta">
+            <span class="duration">6 months</span>
+            <span class="program">Elite Coaching</span>
+        </div>
+    </div>
+</div>
+
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>Sarah's Wellness Journey</h3>
+        <div class="transformation-stats">
+            <span class="stat">+20% flexibility</span>
+            <span class="stat">-3 dress sizes</span>
+            <span class="stat">Stress relief</span>
+        </div>
+        <p class="transformation-story">"The yoga and mobility program at BME helped me become more flexible and reduce stress. I feel more balanced in both body and mind. The community support is amazing!"</p>
+        <div class="transformation-meta">
+            <span class="duration">4 months</span>
+            <span class="program">Yoga & Mobility</span>
+        </div>
+    </div>
+</div>
+
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>Mike's Athletic Performance</h3>
+        <div class="transformation-stats">
+            <span class="stat">+2x endurance</span>
+            <span class="stat">+50 lbs strength</span>
+            <span class="stat">Competition ready</span>
+        </div>
+        <p class="transformation-story">"As an athlete, I needed to push my limits. BME's elite coaching helped me double my endurance and significantly increase my strength. Ready for competition season!"</p>
+        <div class="transformation-meta">
+            <span class="duration">8 months</span>
+            <span class="program">Athletic Training</span>
+        </div>
+    </div>
+</div>
+
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>Emma's Recovery Success</h3>
+        <div class="transformation-stats">
+            <span class="stat">Injury free</span>
+            <span class="stat">Full mobility</span>
+            <span class="stat">Pain free</span>
+        </div>
+        <p class="transformation-story">"After a sports injury, I thought I'd never train again. BME's rehab specialists helped me recover completely and now I'm stronger than ever!"</p>
+        <div class="transformation-meta">
+            <span class="duration">6 months</span>
+            <span class="program">Rehabilitation</span>
+        </div>
+    </div>
+</div>
+
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>David's Group Fitness Journey</h3>
+        <div class="transformation-stats">
+            <span class="stat">-30 lbs</span>
+            <span class="stat">+Energy boost</span>
+            <span class="stat">Community leader</span>
+        </div>
+        <p class="transformation-story">"Group classes at BME kept me motivated and accountable. Lost 30 pounds and gained an amazing community of friends who support each other's goals!"</p>
+        <div class="transformation-meta">
+            <span class="duration">5 months</span>
+            <span class="program">Group Classes</span>
+        </div>
+    </div>
+</div>
+
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>Lisa's Nutrition Transformation</h3>
+        <div class="transformation-stats">
+            <span class="stat">-18 lbs</span>
+            <span class="stat">Clear skin</span>
+            <span class="stat">Better sleep</span>
+        </div>
+        <p class="transformation-story">"The nutrition coaching at BME changed everything. I learned how to fuel my body properly, lost weight, and have more energy than ever before!"</p>
+        <div class="transformation-meta">
+            <span class="duration">3 months</span>
+            <span class="program">Nutrition Coaching</span>
+        </div>
+    </div>
+</div>
+
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>Robert's Strength Journey</h3>
+        <div class="transformation-stats">
+            <span class="stat">+80 lbs lift</span>
+            <span class="stat">+10 lbs muscle</span>
+            <span class="stat">Elite level</span>
+        </div>
+        <p class="transformation-story">"Starting as a beginner, BME's structured training helped me build serious strength. Now I'm lifting weights I never thought possible!"</p>
+        <div class="transformation-meta">
+            <span class="duration">9 months</span>
+            <span class="program">Strength Training</span>
+        </div>
+    </div>
+</div>
+
+<div class="transformation-card">
+    <div class="transformation-image">
+        <svg class="transformation-avatar" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+    <div class="transformation-content">
+        <h3>Amanda's Mental Wellness</h3>
+        <div class="transformation-stats">
+            <span class="stat">-15 lbs</span>
+            <span class="stat">Anxiety free</span>
+            <span class="stat">Mindfulness</span>
+        </div>
+        <p class="transformation-story">"BME's holistic approach helped me overcome anxiety while getting fit. The mind-body connection transformed my entire life!"</p>
+        <div class="transformation-meta">
+            <span class="duration">7 months</span>
+            <span class="program">Wellness Program</span>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<div class="container">
+<h2 class="section-title">Start Your Transformation</h2>
+<p>Join the BME community and begin your own success story today.</p>
+<div class="cta-buttons">
+    <a href="pricing.html" class="btn">Choose Your Plan</a>
+    <a href="contact.html" class="btn-secondary">Get Started</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>&copy; 2024 BME Fitness. All rights reserved.</p>
+</div>
+</footer>

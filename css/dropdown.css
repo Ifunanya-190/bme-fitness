@@ -1,0 +1,123 @@
+/* DROPDOWN ANIMATION FOR JOIN BUTTON */
+.join-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--deep);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.join-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content {
+    padding: 10px 0;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 20px;
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: var(--gold);
+    color: var(--black);
+    transform: translateX(5px);
+}
+
+.dropdown-item.whatsapp-item {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+}
+
+.dropdown-item.whatsapp-item:hover {
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    transform: translateX(5px);
+}
+
+/* HERO BUTTON DROPDOWN STYLING */
+.hero .btn {
+    position: relative;
+}
+
+.hero .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(201, 163, 78, 0.4);
+}
+
+/* CONTACT INFO DISPLAY */
+.contact-info-display {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+}
+
+.contact-item:hover {
+    transform: translateX(5px);
+    border-left: 3px solid var(--gold);
+}
+
+.contact-details {
+    margin-left: 15px;
+}
+
+.contact-details strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-details a {
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.contact-details a:hover {
+    color: var(--gold-light);
+}
+
+/* USER INFO DISPLAY */
+.user-info-display {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(201, 163, 78, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    color: var(--white);
+}
+
+.user-info-display strong {
+    color: var(--gold);
+}
