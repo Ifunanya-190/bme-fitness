@@ -8,15 +8,9 @@
 <title>BME Training System</title>
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/pricing.css">
-<link rel="stylesheet" href="css/auth-enhancements.css">
+<link rel="stylesheet" href="mobile-fixes.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<script src="js/menu.js"></script>
-<script src="js/theme.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-<script src="js/auth.js"></script>
-<body>
 
 
 
@@ -108,4 +102,52 @@ Pay via WhatsApp
 </div>
 </div>
 </section>
+
+<!-- UNIVERSAL MOBILE MENU SCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Pricing page - DOM loaded - testing menu');
+    
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    
+    console.log('Pricing page - Toggle element:', toggle);
+    console.log('Pricing page - Nav element:', nav);
+    
+    if (toggle && nav) {
+        console.log('Pricing page - Elements found - adding click handler');
+        
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Pricing page - Menu clicked!');
+            nav.classList.toggle('active');
+            
+            if (nav.classList.contains('active')) {
+                toggle.innerHTML = '×';
+                document.body.style.overflow = 'hidden';
+                console.log('Pricing page - Menu opened');
+            } else {
+                toggle.innerHTML = '☰';
+                document.body.style.overflow = '';
+                console.log('Pricing page - Menu closed');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+                nav.classList.remove('active');
+                toggle.innerHTML = '☰';
+                document.body.style.overflow = '';
+                console.log('Pricing page - Menu closed by outside click');
+            }
+        });
+    } else {
+        console.error('Pricing page - Menu elements not found!');
+    }
+});
+</script>
+
+</body>
+</html>
 
