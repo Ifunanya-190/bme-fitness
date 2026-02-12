@@ -12,18 +12,22 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--gray);
+    color: var(--gold);
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     transition: var(--transition-smooth);
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
 }
 
 .password-toggle:hover {
-    color: var(--gold);
+    color: var(--gold-light);
 }
 
 .password-toggle i {
     font-size: 16px;
+    pointer-events: none;
 }
 
 /* USER MENU STYLES */
@@ -131,5 +135,31 @@
     .user-dropdown {
         right: -50px;
         min-width: 180px;
+    }
+    
+    /* Mobile password toggle fixes */
+    .password-toggle {
+        padding: 10px;
+        font-size: 18px;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .password-toggle i {
+        font-size: 18px;
+    }
+    
+    /* Mobile form fixes */
+    .password-input-wrapper {
+        width: 100%;
+    }
+    
+    input[type="password"], input[type="text"], input[type="email"] {
+        font-size: 16px !important;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
     }
 }

@@ -5,12 +5,20 @@ class TypingAnimation {
         this.heroSubtitle = document.querySelector('.hero p');
         this.heroButton = document.querySelector('.hero .btn');
         
+        // Check if elements exist and if it's mobile
         if (this.heroTitle && this.heroSubtitle && this.heroButton) {
+            this.isMobile = window.innerWidth <= 768;
             this.init();
         }
     }
     
     init() {
+        // Skip animation on mobile for better performance
+        if (this.isMobile) {
+            this.showMobileOptimized();
+            return;
+        }
+        
         // Hide all elements initially
         this.heroTitle.style.opacity = '0';
         this.heroSubtitle.style.opacity = '0';
@@ -30,6 +38,19 @@ class TypingAnimation {
                 setTimeout(() => this.showButton(), 500);
             }), 500);
         }), 500);
+    }
+    
+    // Mobile optimized version - show content immediately
+    showMobileOptimized() {
+        this.heroTitle.style.opacity = '1';
+        this.heroSubtitle.style.opacity = '1';
+        this.heroButton.style.opacity = '1';
+        this.heroButton.style.transform = 'translateY(0)';
+        
+        // Add dropdown after a short delay
+        setTimeout(() => {
+            this.createDropdownMenu();
+        }, 1000);
     }
     
     typeText(element, text, speed, callback) {
@@ -103,6 +124,13 @@ class TypingAnimation {
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!this.heroButton.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
                 dropdown.classList.remove('show');
             }
         });

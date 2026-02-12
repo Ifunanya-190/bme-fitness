@@ -12,8 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Change icon from ☰ to × when menu is active
             if (nav.classList.contains("active")) {
                 toggle.innerHTML = "×";
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = 'hidden';
             } else {
                 toggle.innerHTML = "☰";
+                // Restore body scroll when menu is closed
+                document.body.style.overflow = '';
             }
         });
         
@@ -22,6 +26,26 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!toggle.contains(e.target) && !nav.contains(e.target)) {
                 nav.classList.remove("active");
                 toggle.innerHTML = "☰";
+                // Restore body scroll when menu is closed
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when pressing Escape key
+        document.addEventListener("keydown", function(e) {
+            if (e.key === 'Escape' && nav.classList.contains("active")) {
+                nav.classList.remove("active");
+                toggle.innerHTML = "☰";
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener("resize", function() {
+            if (window.innerWidth > 768 && nav.classList.contains("active")) {
+                nav.classList.remove("active");
+                toggle.innerHTML = "☰";
+                document.body.style.overflow = '';
             }
         });
     } else {
