@@ -661,5 +661,30 @@ body.light-theme footer{
     border-top:1px solid rgba(0,0,0,.1);
 }
 
+/* USER DROPDOWN MENU - FIX TRANSPARENT BACKGROUND */
+.user-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: var(--deep) !important;  /* Force solid background */
+    background-color: #1a1a1a !important;  /* Fallback dark background */
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.95);  /* Stronger shadow */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    backdrop-filter: blur(10px);  /* Add blur effect */
+}
+
+.user-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 /* AUTH STYLES IMPORT */
 @import url('auth.css');

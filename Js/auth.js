@@ -301,7 +301,7 @@ function showUserMenu(user) {
         existingAuthBtn.remove();
     }
     
-    // Create user menu with Font Awesome person icon
+    // Create user menu with ALL functional links
     const userName = user.displayName || user.email.split('@')[0] || 'User';
     const userMenuHTML = `
         <div class="user-menu">
@@ -311,12 +311,13 @@ function showUserMenu(user) {
             <div class="user-dropdown" id="userDropdown">
                 <div class="user-greeting">👋 Hello, ${userName}</div>
                 <hr>
-                <a href="#" onclick="viewProfile()"><i class="fas fa-user"></i> My Profile</a>
-                <a href="#" onclick="viewMembership()"><i class="fas fa-crown"></i> Membership</a>
-                <a href="#" onclick="viewSchedule()"><i class="fas fa-calendar"></i> My Schedule</a>
-                <a href="#" onclick="viewProgress()"><i class="fas fa-chart-line"></i> Progress</a>
+                <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                <a href="services.html"><i class="fas fa-dumbbell"></i> Training</a>
+                <a href="pricing.html"><i class="fas fa-crown"></i> Membership</a>
+                <a href="schedule.html"><i class="fas fa-calendar"></i> My Schedule</a>
+                <a href="progress.html"><i class="fas fa-chart-line"></i> Progress</a>
                 <hr>
-                <a href="#" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                <a href="javascript:void(0)" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
             </div>
         </div>
     `;
@@ -361,47 +362,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// User menu functions
-function viewProfile() {
-    event.preventDefault();
-    // Close dropdown
-    const dropdown = document.getElementById('userDropdown');
-    if (dropdown) dropdown.classList.remove('active');
-    
-    // Redirect to profile page
-    window.location.href = 'profile.html';
-}
-
-function viewMembership() {
-    event.preventDefault();
-    // Close dropdown
-    const dropdown = document.getElementById('userDropdown');
-    if (dropdown) dropdown.classList.remove('active');
-    
-    // Redirect to membership page
-    window.location.href = 'pricing.html';
-}
-
-function viewSchedule() {
-    event.preventDefault();
-    // Close dropdown
-    const dropdown = document.getElementById('userDropdown');
-    if (dropdown) dropdown.classList.remove('active');
-    
-    // Redirect to schedule page
-    window.location.href = 'schedule.html';
-}
-
-function viewProgress() {
-    event.preventDefault();
-    // Close dropdown
-    const dropdown = document.getElementById('userDropdown');
-    if (dropdown) dropdown.classList.remove('active');
-    
-    // Redirect to progress page
-    window.location.href = 'progress.html';
-}
-
 // Toggle password visibility
 function togglePassword(inputId) {
     const passwordInput = document.getElementById(inputId);
@@ -437,8 +397,4 @@ window.signInWithGoogle = signInWithGoogle;
 window.signOut = signOut;
 window.switchTab = switchTab;
 window.toggleUserDropdown = toggleUserDropdown;
-window.viewProfile = viewProfile;
-window.viewMembership = viewMembership;
-window.viewSchedule = viewSchedule;
-window.viewProgress = viewProgress;
 window.togglePassword = togglePassword;
