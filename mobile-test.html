@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>MOBILE TEST PAGE</title>
+<style>
+/* SIMPLE MOBILE TEST - NO EXTERNAL DEPENDENCIES */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.menu-toggle {
+    display: flex;
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    z-index: 99999;
+    background: #c9a34e;
+    border: 3px solid #c9a34e;
+    color: #000;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.menu-toggle:hover {
+    background: #000;
+    color: #c9a34e;
+    transform: scale(1.1);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99998;
+    background: #000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: rgba(0,0,0,0.98);
+    flex-direction: column;
+    display: none;
+    z-index: 99997;
+    padding: 20px 0;
+    overflow-y: auto;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    background: #c9a34e;
+    color: #000;
+}
+
+.logo {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.test-content {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.test-content h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.test-content p {
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.status {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    color: #fff;
+}
+</style>
+</head>
+<body>
+
+<!-- SIMPLE TEST NAVBAR -->
+<header class="navbar">
+<div class="logo">BME FITNESS</div>
+<div class="menu-toggle" id="menu-toggle">☰</div>
+<nav class="nav-links" id="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- TEST CONTENT -->
+<div class="test-content">
+    <h1>MOBILE FUNCTIONALITY TEST</h1>
+    <p>Test the hamburger menu above</p>
+    <div class="status" id="status">Menu Status: Ready</div>
+</div>
+
+<!-- SIMPLE SCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== MOBILE TEST PAGE LOADED ===');
+    
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    const status = document.getElementById('status');
+    
+    console.log('Toggle element:', toggle);
+    console.log('Nav element:', nav);
+    console.log('Status element:', status);
+    
+    if (toggle && nav) {
+        console.log('✅ All elements found - adding click handler');
+        status.textContent = 'Menu Status: Elements Found';
+        
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('🍔 Menu clicked!');
+            nav.classList.toggle('active');
+            
+            if (nav.classList.contains('active')) {
+                toggle.innerHTML = '×';
+                document.body.style.overflow = 'hidden';
+                status.textContent = 'Menu Status: OPENED';
+                console.log('✅ Menu OPENED');
+            } else {
+                toggle.innerHTML = '☰';
+                document.body.style.overflow = '';
+                status.textContent = 'Menu Status: CLOSED';
+                console.log('✅ Menu CLOSED');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+                nav.classList.remove('active');
+                toggle.innerHTML = '☰';
+                document.body.style.overflow = '';
+                status.textContent = 'Menu Status: CLOSED (outside click)';
+                console.log('✅ Menu closed by outside click');
+            }
+        });
+        
+    } else {
+        console.error('❌ Menu elements NOT found!');
+        status.textContent = 'Menu Status: ERROR - Elements Not Found';
+    }
+});
+</script>
+
+</body>
+</html>
