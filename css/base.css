@@ -691,8 +691,7 @@ body.light-theme footer{
 /* ====================================== */
 
 body.light-theme .user-dropdown {
-    background: #ffffff !important;  /* White background in light mode */
-    background-color: #ffffff !important;  /* Force white */
+    background-color: #ffffff !important;  /* White background in light mode */
     border: 2px solid var(--gold);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);  /* Lighter shadow */
 }

@@ -19,13 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             const userDropdown = document.getElementById('userDropdown');
             if (userDropdown) {
-                if (savedTheme === 'light') {
-                    userDropdown.style.background = '#ffffff';
-                    userDropdown.style.backgroundColor = '#ffffff';
-                } else {
-                    userDropdown.style.background = 'var(--deep)';
-                    userDropdown.style.backgroundColor = '#1a1a1a';
-                }
+                userDropdown.style.backgroundColor = (savedTheme === 'light') ? '#ffffff' : '#1a1a1a';
             }
         }, 100);
     } else {
@@ -44,13 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Force update user dropdown if it exists
         const userDropdown = document.getElementById('userDropdown');
         if (userDropdown) {
-            if (isLight) {
-                userDropdown.style.background = '#ffffff';
-                userDropdown.style.backgroundColor = '#ffffff';
-            } else {
-                userDropdown.style.background = 'var(--deep)';
-                userDropdown.style.backgroundColor = '#1a1a1a';
-            }
+            userDropdown.style.backgroundColor = isLight ? '#ffffff' : '#1a1a1a';
         }
         
         // Add transition effect

@@ -133,7 +133,6 @@
 .start-training-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(201, 163, 78, 0.4);
-    color: #000;
 }
 
 /* Light theme support */
@@ -315,9 +314,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof firebase !== 'undefined' && firebase.auth) {
         firebase.auth().onAuthStateChanged(function(user) {
             if (!user) {
+                console.log('User not authenticated, redirecting to login page');
                 window.location.href = 'login.html';
             }
         });
+    } else {
+        console.warn('Firebase not initialized, progress tracking may be limited');
     }
 });
 </script>
