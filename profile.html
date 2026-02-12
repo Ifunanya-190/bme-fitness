@@ -14,7 +14,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  /* CRITICAL - prevents overflow */
 }
 
 body {
@@ -24,9 +24,11 @@ body {
 }
 
 .profile-container {
+    width: 100%;
     max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
+    box-sizing: border-box;  /* Include padding in width */
 }
 
 /* Profile Header */
@@ -85,6 +87,9 @@ body {
     margin-bottom: 40px;
     border: 2px solid rgba(201, 163, 78, 0.3);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;  /* Prevent content overflow */
 }
 
 .profile-info h2 {
@@ -108,6 +113,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .info-item {
@@ -116,6 +123,9 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(201, 163, 78, 0.2);
     transition: var(--transition-smooth);
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;  /* Prevent long text from overflowing */
 }
 
 .info-item:hover {
@@ -314,7 +324,7 @@ body {
     box-shadow: 0 8px 25px rgba(201, 163, 78, 0.5);
 }
 
-/* Mobile Responsive - NO OVERLAPPING */
+/* Mobile Responsive - NO OVERLAPPING - CRITICAL FIX */
 @media (max-width: 768px) {
     body {
         padding-top: 70px;
@@ -323,10 +333,12 @@ body {
     .profile-container {
         margin: 20px 15px;
         padding: 10px;
+        /* Remove any borders or frames that cause overlapping */
     }
     
     .profile-header {
         padding: 30px 20px;
+        margin-bottom: 30px;
     }
     
     .profile-avatar {
@@ -340,12 +352,34 @@ body {
     }
     
     .profile-info {
-        padding: 30px 20px;
+        padding: 25px 15px;  /* Reduced padding to prevent overlap */
+        margin: 0;  /* Remove margin */
+        border: 2px solid rgba(201, 163, 78, 0.3);  /* Keep border inside */
     }
     
     .info-grid {
         grid-template-columns: 1fr;  /* Single column on mobile */
         gap: 20px;
+        padding: 0;  /* No padding to prevent overflow */
+    }
+    
+    .info-item {
+        padding: 20px 15px;  /* Reduced padding */
+        margin: 0;  /* No margin */
+        width: 100%;  /* Full width */
+        box-sizing: border-box;  /* Include padding in width calculation */
+    }
+    
+    /* Remove any decorative borders that cause overlap */
+    .profile-info::before,
+    .profile-info::after {
+        display: none;
+    }
+    
+    .edit-profile-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
     }
 }
 </style>
