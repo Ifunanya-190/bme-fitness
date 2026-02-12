@@ -8,6 +8,7 @@
 <title>My Profile - BME Fitness</title>
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/auth-enhancements.css">
+<link rel="stylesheet" href="mobile-fixes.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
 .profile-container {
@@ -309,6 +310,49 @@ function saveProfile() {
         alert('Error updating profile: ' + error.message);
     });
 }
+
+// UNIVERSAL MOBILE MENU SCRIPT
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Profile page - DOM loaded - testing menu');
+    
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    
+    console.log('Profile page - Toggle element:', toggle);
+    console.log('Profile page - Nav element:', nav);
+    
+    if (toggle && nav) {
+        console.log('Profile page - Elements found - adding click handler');
+        
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Profile page - Menu clicked!');
+            nav.classList.toggle('active');
+            
+            if (nav.classList.contains('active')) {
+                toggle.innerHTML = '×';
+                document.body.style.overflow = 'hidden';
+                console.log('Profile page - Menu opened');
+            } else {
+                toggle.innerHTML = '☰';
+                document.body.style.overflow = '';
+                console.log('Profile page - Menu closed');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+                nav.classList.remove('active');
+                toggle.innerHTML = '☰';
+                document.body.style.overflow = '';
+                console.log('Profile page - Menu closed by outside click');
+            }
+        });
+    } else {
+        console.error('Profile page - Menu elements not found!');
+    }
+});
 </script>
 
 </body>
